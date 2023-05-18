@@ -57,6 +57,7 @@ h6 {
     --hmpgInput: #E6E7E9;
     --titleColor: #6B7280;
     --hmpgbg: #F6F6F6;
+    --openhours: #2C8DFF;
 }
 
 @mixin display-center {
@@ -73,7 +74,9 @@ h6 {
 .register-cover,
 .forget-cover,
 .back-email-cover,
-.home-page-cover {
+.home-page-cover,
+.booking-history-cover,
+.restaurant-details-cover {
     @include display-center();
     flex-direction: column;
     height: 100%;
@@ -244,14 +247,6 @@ h6 {
             width: 28px;
             height: 0px;
         }
-
-        // .join-text:focus .line {
-        //     display: block;
-        // }
-
-        // .join-text:focus {
-        //     color: var(--mainGreen);
-        // }
 
         .custom-focus {
             color: var(--mainGreen);
@@ -613,34 +608,34 @@ h6 {
         line-height: 0;
         margin-top: 18px;
     }
+}
 
-    .content-header {
-        width: 100%;
-        padding: 36px 16px 16px 16px;
+.content-header {
+    width: 100%;
+    padding: 36px 16px 16px 16px;
+    @include display-center();
+    justify-content: space-between;
+
+    .join-text {
+        color: var(--onBoard-title);
+        margin-bottom: 4px;
+    }
+
+    .content-text {
+        color: var(--titleColor);
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 14px;
+    }
+
+    .see-all-link {
+        text-decoration: none;
+        line-height: 36px;
         @include display-center();
-        justify-content: space-between;
+        cursor: pointer;
 
-        .join-text {
-            color: var(--onBoard-title);
-            margin-bottom: 4px;
-        }
-
-        .content-text {
-            color: var(--titleColor);
-            font-size: 12px;
-            font-weight: 500;
-            line-height: 14px;
-        }
-
-        .see-all-link {
-            text-decoration: none;
-            line-height: 36px;
-            @include display-center();
-            cursor: pointer;
-
-            img {
-                margin-left: 6px;
-            }
+        img {
+            margin-left: 6px;
         }
     }
 }
@@ -687,22 +682,9 @@ h6 {
     }
 }
 
-.adress {
-    @include display-center();
-    align-items: flex-start;
-
-    .food-adress {
-        margin-left: 6px;
-        color: var(--titleColor);
-        font-size: 10px;
-        font-weight: 500;
-        line-height: 12px;
-    }
-}
-
 .restourants {
     .restourant {
-        width: 340px;
+        width: 348px;
         @include display-center();
         background: var(--white);
         box-shadow: 0px 1px 4px rgba(34, 34, 34, 0.06);
@@ -713,8 +695,6 @@ h6 {
             overflow: hidden;
 
             img {
-                width: 100%;
-                height: 100%;
                 object-fit: cover;
             }
         }
@@ -724,7 +704,6 @@ h6 {
 
             .hm-pg-title {
                 color: var(--onBoard-title);
-                font-family: Inter;
                 font-weight: 600;
                 margin-bottom: 6px;
             }
@@ -751,13 +730,27 @@ h6 {
                 font-weight: 600;
                 line-height: 15px;
                 color: var(--white);
+                cursor: pointer;
             }
         }
     }
 }
 
-.restourant:not(:last-child){
+.restourant:not(:last-child) {
     margin-bottom: 6px;
+}
+
+.adress {
+    @include display-center();
+    align-items: flex-start;
+
+    .food-adress {
+        margin-left: 6px;
+        color: var(--titleColor);
+        font-size: 10px;
+        font-weight: 500;
+        line-height: 12px;
+    }
 }
 
 .footer {
@@ -766,9 +759,197 @@ h6 {
     position: fixed;
     bottom: 0;
     height: 64px;
-    width: 375px;
+    width: 100%;
     padding: 14px 55px 14px 56px;
     background: var(--white);
     border-radius: 20px 20px 0px 0px;
     box-shadow: 0px -5px 14px 0px #00000017;
+}
+
+@mixin top-details {
+    background: var(--mainGreen);
+    border-radius: 0px 0px 16px 16px;
+    width: 100%;
+    text-align: center;
+}
+
+
+.booking-history-cover {
+    justify-content: flex-start;
+
+    .booking-history {
+        @include top-details();
+        padding: 24px;
+        height: 68px;
+        margin-bottom: 24px;
+    }
+
+    .join-text {
+        color: var(--white);
+    }
+
+    .hm-pg-title {
+        font-size: 16px;
+        line-height: 18px;
+    }
+
+    .booking-more {
+        padding: 12px 24px;
+        background: var(--white);
+        box-shadow: 0px 1px 4px rgba(34, 34, 34, 0.06);
+        border-radius: 10px;
+        margin-top: 12px;
+        @include display-center();
+
+        a {
+            color: var(--titleColor);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        img {
+            margin-right: 10px;
+        }
+    }
+}
+
+@mixin open-hours-text {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 15px;
+}
+
+
+.restaurant-details-cover {
+    justify-content: flex-start;
+    background-color: var(--bgColor);
+
+    .details-top {
+        @include top-details();
+        height: 54px;
+        padding: 20px 134px 20px 12px;
+        margin-bottom: 8px;
+
+        a {
+            color: var(--white);
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 15px;
+            text-decoration: none;
+
+            img {
+                margin-right: 102px;
+            }
+        }
+    }
+
+    .restaurant-inner {
+        padding: 20px 18px 28px 18px;
+        background: var(--white);
+        border-radius: 16px;
+        margin-bottom: 15px;
+
+        .hm-pg-title {
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 24px;
+            text-align: left;
+        }
+
+        .adress {
+            justify-content: flex-start;
+            margin-bottom: 24px;
+            margin-top: 4px;
+        }
+
+
+        .inner__img {
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+            border-radius: 8px;
+        }
+
+        .open-hours {
+            @include display-center();
+            justify-content: space-between;
+            margin-top: 25px;
+
+            .hours {
+                p {
+                    @include display-center();
+                    justify-content: flex-start;
+
+                    span {
+                        @include open-hours-text();
+                        font-weight: 500;
+                        color: var(--titleColor);
+                        margin-left: 4px;
+                    }
+                }
+
+                strong {
+                    color: var(--onBoard-title);
+                    @include open-hours-text();
+                }
+            }
+        }
+
+        .visit {
+            a {
+                @include display-center();
+                color: var(--openhours);
+                @include open-hours-text();
+                text-decoration: none;
+
+                img {
+                    margin-right: 8px;
+                }
+            }
+        }
+    }
+
+    .restourants-list {
+        background: var(--white);
+        border-radius: 16px 16px 0px 0px;
+        padding: 22px;
+
+        .content-header {
+            padding: 21px 6px 21px 8px;
+
+            .join-text {
+                color: var(--onBoard-title);
+            }
+
+            .see-all-link {
+                color: var(--mainGreen);
+            }
+        }
+
+        .restourant {
+            border: 1px solid #ECECEC;
+        }
+    }
+
+    .details__footer {
+        background: var(--white);
+        position: fixed;
+        box-shadow: 0px -1px 14px rgba(0, 0, 0, 0.09);
+        border-radius: 16px 16px 0px 0px;
+        height: 85px;
+        width: 100%;
+        bottom: 0;
+        padding: 32px 71px 26px 71px;
+
+        a {
+            background: var(--mainGreen);
+            box-shadow: 0px 2px 5px rgba(14, 127, 61, 0.24);
+            border-radius: 10px;
+            color: var(--white);
+            padding: 8px 88px;
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 17px;
+        }
+    }
 }
