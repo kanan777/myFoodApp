@@ -58,6 +58,11 @@ h6 {
     --titleColor: #6B7280;
     --hmpgbg: #F6F6F6;
     --openhours: #2C8DFF;
+    --notificationColor: #F24F4F;
+    --ringBg: #F9F9F9;
+    --borderColor: #D2D4D8;
+    --restourantBorder: #ECECEC;
+    --logoutButton: #EB4646;
 }
 
 @mixin display-center {
@@ -76,7 +81,8 @@ h6 {
 .back-email-cover,
 .home-page-cover,
 .booking-history-cover,
-.restaurant-details-cover {
+.restaurant-details-cover,
+.profile-details-cover {
     @include display-center();
     flex-direction: column;
     height: 100%;
@@ -284,7 +290,7 @@ h6 {
         content: '';
         position: absolute;
         display: block;
-        border: 0.5px solid #D2D4D8;
+        border: 0.5px solid var(--borderColor);
         width: 148px;
         height: 0px;
         top: 48px;
@@ -925,7 +931,7 @@ h6 {
         }
 
         .restourant {
-            border: 1px solid #ECECEC;
+            border: 1px solid var(--restourantBorder);
         }
     }
 
@@ -938,6 +944,7 @@ h6 {
         width: 100%;
         bottom: 0;
         padding: 32px 71px 26px 71px;
+        text-align: center;
 
         a {
             background: var(--mainGreen);
@@ -950,6 +957,143 @@ h6 {
             font-weight: 600;
             font-size: 14px;
             line-height: 17px;
+        }
+    }
+}
+
+@mixin profile-boxes {
+    background: var(--white);
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.06);
+    border-radius: 11px;
+    width: 328px;
+}
+
+.profile-details-cover {
+    justify-content: flex-start;
+    background: var(--bgColor);
+
+    .account-details {
+        @include display-center();
+        justify-content: space-between;
+        margin-top: 61px;
+        margin-bottom: 40px;
+        @include profile-boxes();
+
+        .avatar2 {
+            display: inline-block;
+            padding: 13px 0px 13px 24px;
+        }
+
+        .user-info {
+            margin-left: 16px;
+            margin-right: 48px;
+            margin-top: 10px;
+
+            .join-text {
+                color: var(--forgetTitle);
+                display: block;
+                line-height: 10px;
+            }
+
+            .food-adress {
+                font-size: 10px;
+                font-weight: 500;
+                line-height: 12px;
+                color: var(--titleColor);
+            }
+        }
+
+        .ring-cover {
+            padding-right: 24px;
+
+            .notifications {
+                position: relative;
+
+                .ring {
+                    padding: 13px;
+                    background: var(--ringBg);
+                    @include display-center();
+                    border-radius: 50%;
+                }
+
+                span {
+                    @include display-center();
+                    padding: 4px;
+                    background-color: var(--notificationColor);
+                    color: var(--white);
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    border-radius: 50%;
+                    font-size: 8px;
+                    font-weight: 500;
+                    line-height: 10px;
+                    width: 18px;
+                }
+            }
+        }
+    }
+
+    .profile-text {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 22px;
+        color: var(--forgetTitle);
+    }
+
+    .account-settings {
+        @include display-center();
+        justify-content: space-between;
+        @include profile-boxes();
+        padding: 24px;
+
+        .settings-content {
+            @include display-center();
+
+            span {
+                margin-left: 10px;
+            }
+        }
+    }
+
+    .all-settings {
+        padding: 24px;
+        @include profile-boxes();
+        width: 330px;
+        margin-top: 10px;
+
+        li:not(:last-child) {
+            margin-bottom: 20px;
+        }
+
+        a {
+            @include display-center();
+            justify-content: space-between;
+            text-decoration: none;
+
+            .settings-content {
+                @include display-center();
+
+                .profile-text {
+                    margin-left: 24px;
+                }
+            }
+        }
+    }
+
+    .logout__button {
+        text-align: center;
+        margin-top: 40px;
+
+        .logout {
+            outline: none;
+            border: none;
+            background: var(--logoutButton);
+            padding: 8px 28px;
+            color: var(--white);
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.19);
+            border-radius: 11px;
+            width: 111px;
         }
     }
 }

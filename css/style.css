@@ -54,6 +54,11 @@ h6 {
   --titleColor: #6B7280;
   --hmpgbg: #F6F6F6;
   --openhours: #2C8DFF;
+  --notificationColor: #F24F4F;
+  --ringBg: #F9F9F9;
+  --borderColor: #D2D4D8;
+  --restourantBorder: #ECECEC;
+  --logoutButton: #EB4646;
 }
 
 .onBoard-cover,
@@ -62,7 +67,8 @@ h6 {
 .back-email-cover,
 .home-page-cover,
 .booking-history-cover,
-.restaurant-details-cover {
+.restaurant-details-cover,
+.profile-details-cover {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -266,7 +272,7 @@ h6 {
   content: "";
   position: absolute;
   display: block;
-  border: 0.5px solid #D2D4D8;
+  border: 0.5px solid var(--borderColor);
   width: 148px;
   height: 0px;
   top: 48px;
@@ -815,7 +821,7 @@ h6 {
   color: var(--mainGreen);
 }
 .restaurant-details-cover .restourants-list .restourant {
-  border: 1px solid #ECECEC;
+  border: 1px solid var(--restourantBorder);
 }
 .restaurant-details-cover .details__footer {
   background: var(--white);
@@ -826,6 +832,7 @@ h6 {
   width: 100%;
   bottom: 0;
   padding: 32px 71px 26px 71px;
+  text-align: center;
 }
 .restaurant-details-cover .details__footer a {
   background: var(--mainGreen);
@@ -838,4 +845,137 @@ h6 {
   font-weight: 600;
   font-size: 14px;
   line-height: 17px;
+}
+
+.profile-details-cover {
+  justify-content: flex-start;
+  background: var(--bgColor);
+}
+.profile-details-cover .account-details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  margin-top: 61px;
+  margin-bottom: 40px;
+  background: var(--white);
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.06);
+  border-radius: 11px;
+  width: 328px;
+}
+.profile-details-cover .account-details .avatar2 {
+  display: inline-block;
+  padding: 13px 0px 13px 24px;
+}
+.profile-details-cover .account-details .user-info {
+  margin-left: 16px;
+  margin-right: 48px;
+  margin-top: 10px;
+}
+.profile-details-cover .account-details .user-info .join-text {
+  color: var(--forgetTitle);
+  display: block;
+  line-height: 10px;
+}
+.profile-details-cover .account-details .user-info .food-adress {
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 12px;
+  color: var(--titleColor);
+}
+.profile-details-cover .account-details .ring-cover {
+  padding-right: 24px;
+}
+.profile-details-cover .account-details .ring-cover .notifications {
+  position: relative;
+}
+.profile-details-cover .account-details .ring-cover .notifications .ring {
+  padding: 13px;
+  background: var(--ringBg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.profile-details-cover .account-details .ring-cover .notifications span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  background-color: var(--notificationColor);
+  color: var(--white);
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  font-size: 8px;
+  font-weight: 500;
+  line-height: 10px;
+  width: 18px;
+}
+.profile-details-cover .profile-text {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  color: var(--forgetTitle);
+}
+.profile-details-cover .account-settings {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  background: var(--white);
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.06);
+  border-radius: 11px;
+  width: 328px;
+  padding: 24px;
+}
+.profile-details-cover .account-settings .settings-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile-details-cover .account-settings .settings-content span {
+  margin-left: 10px;
+}
+.profile-details-cover .all-settings {
+  padding: 24px;
+  background: var(--white);
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.06);
+  border-radius: 11px;
+  width: 328px;
+  width: 330px;
+  margin-top: 10px;
+}
+.profile-details-cover .all-settings li:not(:last-child) {
+  margin-bottom: 20px;
+}
+.profile-details-cover .all-settings a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  text-decoration: none;
+}
+.profile-details-cover .all-settings a .settings-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile-details-cover .all-settings a .settings-content .profile-text {
+  margin-left: 24px;
+}
+.profile-details-cover .logout__button {
+  text-align: center;
+  margin-top: 40px;
+}
+.profile-details-cover .logout__button .logout {
+  outline: none;
+  border: none;
+  background: var(--logoutButton);
+  padding: 8px 28px;
+  color: var(--white);
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.19);
+  border-radius: 11px;
+  width: 111px;
 }/*# sourceMappingURL=style.css.map */
